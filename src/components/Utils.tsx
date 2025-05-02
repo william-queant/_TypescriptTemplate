@@ -1,6 +1,9 @@
 import { JSX } from "react";
 import "../App.css";
 
+export const ots = (o: object | number | string) =>
+  JSON.stringify(o, null, 2) as string;
+
 export const Test = ({
   condition,
   children,
@@ -39,7 +42,7 @@ export const TimedTest = ({
 
   return (
     <p>
-      Result is: <b>{result}</b> (
+      Result is: <b>{JSON.stringify(result)}</b> (
       <span className={isPassed ? "passed" : "failed"}>
         {isPassed ? "Passed" : "Failed"} in {end - start}ms
       </span>
